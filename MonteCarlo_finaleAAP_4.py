@@ -87,8 +87,8 @@ for l in range(repet):
     for j in net_inc:
         year=year+1
               
-        CFO_bforWC=j+300    # what are this numbers? this is the Non-cash item in the CF statement that we assume constant (historically constant)
-        # WHERE is that cash coming from? interests payments historically constant
+        CFO_bforWC=j+300    #  this is the Non-cash item in the CF statement that we assume constant (historically constant)
+        # interests payments historically constant
         workcap=workcap*(1+rd.gauss(0.001,0.1)) #high stdev as we can see historically
         CFO_net=CFO_bforWC+workcap
         posprec=j
@@ -102,8 +102,7 @@ for l in range(repet):
             debt=-50
         if debt_time>9:
             debt_time==0         
-            # Ineterst payment IS NOT TAXEBLE, so you have to account for that in computation of NET INCOME
-            # yes, I don't tax interests payments as it comes after tax rate
+ 
         fcfe=CFO_net-capex+debt
         T=year-2020
         pv=fcfe/((1+discount_rate)**T)
